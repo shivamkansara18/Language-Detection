@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './index.css';
 
 const HistoryPage = () => {
   const [history, setHistory] = useState([]);
@@ -12,26 +13,26 @@ const HistoryPage = () => {
   }, []);
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Translation & Detection History</h2>
-      <table className="min-w-full border border-gray-300">
-        <thead className="bg-gray-100">
+    <div className="history-page-container">
+      <h2 className="page-title">Translation & Detection History</h2>
+      <table className="history-table">
+        <thead>
           <tr>
-            <th className="border px-4 py-2">Original Text</th>
-            <th className="border px-4 py-2">Detected Language</th>
-            <th className="border px-4 py-2">Target Language</th>
-            <th className="border px-4 py-2">Translated Text</th>
-            <th className="border px-4 py-2">Time</th>
+            <th>Original Text</th>
+            <th>Detected Language</th>
+            <th>Target Language</th>
+            <th>Translated Text</th>
+            <th>Time</th>
           </tr>
         </thead>
         <tbody>
           {history.map((entry, idx) => (
             <tr key={idx}>
-              <td className="border px-4 py-2">{entry.text}</td>
-              <td className="border px-4 py-2">{entry.detected_lang}</td>
-              <td className="border px-4 py-2">{entry.target_lang}</td>
-              <td className="border px-4 py-2">{entry.translated_text}</td>
-              <td className="border px-4 py-2">{entry.timestamp}</td>
+              <td>{entry.text}</td>
+              <td>{entry.detected_lang}</td>
+              <td>{entry.target_lang}</td>
+              <td>{entry.translated_text}</td>
+              <td>{entry.timestamp}</td>
             </tr>
           ))}
         </tbody>

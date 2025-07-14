@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './index.css';
 
 const languages = [
   'English', 'Malayalam', 'Hindi', 'Tamil', 'Kannada', 'French', 'Spanish',
@@ -21,8 +22,6 @@ const Convert = () => {
         targetLang,
         userId: user._id
       });
-
-      // Ensure values are set properly
       setDetectedLang(res.data.detectedLang);
       setTranslatedText(res.data.translatedText);
     } catch (err) {
@@ -32,17 +31,22 @@ const Convert = () => {
   };
 
   return (
-    <div>
-      <h2>Convert Language</h2>
+    <div className="convert-container">
+      <h2 className="page-title">Convert Language</h2>
       <textarea
         rows="4"
         cols="50"
         placeholder="Type a sentence..."
         value={text}
         onChange={(e) => setText(e.target.value)}
+        className="text-area"
       />
       <br />
-      <select value={targetLang} onChange={(e) => setTargetLang(e.target.value)}>
+      <select
+        value={targetLang}
+        onChange={(e) => setTargetLang(e.target.value)}
+        className="dropdown"
+      >
         {languages.map((lang) => (
           <option key={lang} value={lang}>
             {lang}
@@ -50,10 +54,10 @@ const Convert = () => {
         ))}
       </select>
       <br />
-      <button onClick={handleConvert}>Convert</button>
+      <button onClick={handleConvert} className="submit-button">Convert</button>
 
       {detectedLang && translatedText && (
-        <div style={{ marginTop: '20px' }}>
+        <div className="result-container">
           <p><strong>Detected Language:</strong> {detectedLang}</p>
           <p><strong>Translated Text:</strong> {translatedText}</p>
         </div>

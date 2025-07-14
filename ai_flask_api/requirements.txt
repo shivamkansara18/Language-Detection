@@ -1,0 +1,7 @@
+Flask==2.2.2
+Flask-Cors==5.0.1
+numpy
+pandas
+tensorflow
+Pillow
+pytesseract

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './index.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -18,13 +19,15 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <div className="dashboard-container">
       <h2>Welcome, {user?.username || 'Guest'}</h2>
-      <button onClick={() => navigate('/detect')}>Recognize Language</button>
-      <button onClick={() => navigate('/convert')}>Convert Language</button>
-      <button onClick={() => navigate('/history')}>History</button>
-      <button onClick={() => navigate('/image-to-text')}>Image to Text</button>
-      <button onClick={logout}>Logout</button>
+      <div className="button-group">
+        <button onClick={() => navigate('/detect')}>Recognize Language</button>
+        <button onClick={() => navigate('/convert')}>Convert Language</button>
+        <button onClick={() => navigate('/history')}>History</button>
+        <button onClick={() => navigate('/image-to-text')}>Image to Text</button>
+        <button onClick={logout} className="logout">Logout</button>
+      </div>
     </div>
   );
 };

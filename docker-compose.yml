@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  flaskapi:
+    build:
+      context: ./ai_flask_api
+    container_name: flaskapi
+    ports:
+      - "5000:5000"
+
+  backend:
+    build:
+      context: ./server
+    container_name: backend
+    ports:
+      - "5001:5001"
+    depends_on:
+      - flaskapi
+
+  frontend:
+    build:
+      context: ./client
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

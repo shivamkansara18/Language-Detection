@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './index.css';
 
 const Detect = () => {
   const [text, setText] = useState("");
@@ -27,9 +28,9 @@ const Detect = () => {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Language Detection</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="detect-container">
+      <h2 className="page-title">Language Detection</h2>
+      <form onSubmit={handleSubmit} className="detect-form">
         <textarea
           rows="4"
           cols="50"
@@ -37,15 +38,16 @@ const Detect = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           required
+          className="text-area"
         />
         <br />
-        <button type="submit" disabled={loading}>
+        <button type="submit" disabled={loading} className="submit-button">
           {loading ? "Detecting..." : "Detect Language"}
         </button>
       </form>
 
       {detectedLang && (
-        <div style={{ marginTop: "1rem" }}>
+        <div className="result-container">
           <p><strong>Detected Language:</strong> {detectedLang}</p>
         </div>
       )}

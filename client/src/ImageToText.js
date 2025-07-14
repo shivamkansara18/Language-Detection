@@ -1,6 +1,6 @@
-// components/ImageToText.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import './index.css';
 
 const ImageToText = () => {
   const [image, setImage] = useState(null);
@@ -29,15 +29,15 @@ const ImageToText = () => {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Image to Text & Language Detection</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="file" accept="image/*" onChange={handleImageUpload} />
-        <button type="submit">Extract Text</button>
+    <div className="image-to-text-container">
+      <h2 className="page-title">Image to Text & Language Detection</h2>
+      <form onSubmit={handleSubmit} className="image-form">
+        <input type="file" accept="image/*" onChange={handleImageUpload} className="file-input" />
+        <button type="submit" className="submit-button">Extract Text</button>
       </form>
       {extractedText && (
-        <div style={{ marginTop: '1rem' }}>
-          <h3>Detected Language: {detectedLang}</h3>
+        <div className="result-container">
+          <h3 className="detected-language">Detected Language: {detectedLang}</h3>
           <p><strong>Extracted Text:</strong> {extractedText}</p>
         </div>
       )}
