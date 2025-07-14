@@ -81,27 +81,16 @@ Database: MongoDB Atlas
 ├── README.md                      # Project documentation
 
 
-5.  Deployment Overview
-Instance 1: Hosts the Flask-based ML model and OCR handler
-URL: http://65.2.122.171:8000/
 
-Instance 2: Hosts the MERN stack frontend + backend
-URLs:
-
-Frontend: http://52.66.251.84:3000/
-
-Backend: http://52.66.251.84:3001/
-
-Database: MongoDB Atlas (Cloud)
-
-
-6.  Accuracy
+5.  Accuracy
+   
 Language Detection Accuracy: 90.2% on validation set across 17 languages.
 
 Model trained using Bag-of-Words + Multinomial Naive Bayes with optimized preprocessing.
 
 
-7.  Image-Based Detection Workflow
+6.  Image-Based Detection Workflow
+   
 User uploads an image containing text.
 
 OCR engine extracts text using TensorFlow.
@@ -111,12 +100,14 @@ Text is passed through the language detection model.
 Detected text is translated to the target language.
 
 
-8.  Live Demo & GitHub
+7.  Live Demo & GitHub
+   
  View Project on GitHub
  Want to test it live? Just ask and I can help you deploy a live test version.
 
 
 9.  Future Enhancements
+    
 Integrate speech-to-text input for audio-based language detection.
 
 Enable PDF file uploads for document-based detection and translation.
